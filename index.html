@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- WaveSurfer core -->
+  <script src="https://unpkg.com/wavesurfer.js" defer></script>
+  <script src="./js/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>letmelive</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="icon" type="image/png" href="img/skull.png">
+</head>
+<body>
+  <header>
+    <a href="../" class="home-button" data-section="home">
+    <i class="fas fa-home"></i>
+    </a>
+    <h1>km-X-zn-I-³-</h1>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#" data-section="home">Home</a></li>
+        <li><a href="#" data-section="about">About Me</a></li>
+        <li><a href="#" data-section="writeups">Writeups</a></li>
+        <li><a href="#" data-section="contact">Contact</a></li>
+        <li><a href="#" data-section="extras">Extras</a></li>
+      </ul>
+    </nav>
+  </header>
+  <br>
+   <!-- Music Visualizer --> <div id="waveform"></div> <button id="playPause" class="btn-visualizer">$ play
+   </button> </div> 
+   <br><br>
+  <!-- Home (terminal card) -->
+  <div id="home" class="page-section">
+    <div class="terminal-card">
+      <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="terminal-body">
+        $ whoami<br>
+        <strong id="typed-name"></strong><span class="cursor"></span>
+      </div>
+    </div>
+  </div>
+  <!-- About Me -->
+  <section id="about" class="page-section hidden">
+    <h2></h2>
+    <p>Cyber security enthusiast</p>
+    <p>Curious mind | breaking systems to secure them</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="page-section hidden">
+    <h2></h2>
+    <p>Email: <a href="mailto:krakenzz503@gmail.com">mail</a></p>
+    <br>
+    <p>GitHub: <a href="https://github.com/kraken-503/" target="_blank">kraken-503</a></p>
+  </section>
+
+  <!-- Writeups -->
+  <section id="writeups" class="page-section hidden">
+    <h2></h2>
+    <div id="writeups-container">
+      <!-- Writeups will be injected here by JS -->
+    </div>
+  </section>
+  
+  <!-- Extras -->
+  <section id="extras" class="page-section hidden">
+    <h2><u>MY FAVORITE QUOTES FROM *</u></h2>
+    <br>
+    <p>
+    "Why Has Thou Forsaken Me, O Deity Whose Existence I Doubt"
+    <footer>
+      - Dr Sheldon Lee Cooper
+    </footer>
+    </p>
+    <br><br>
+    <p>
+      "The Power To Destroy A Thing Is The Absolute Control Over It"
+    <footer>
+      - Frank Herbert, Dune
+    </footer>
+    </p>
+    <br>
+    <p>
+    "I Wish You Good Fortunes In The Wars To Come, And Now It Begins"
+    <footer>
+      - Ser Arthur Dayne
+    </footer>
+    </p>
+    <br>
+    <p>
+    "May The Force Be With You"
+    <footer>
+      - Obi-Wan Kenobi
+    </footer>
+    </p>
+  </section>
+</body>
+</html>
+

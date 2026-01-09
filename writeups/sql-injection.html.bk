@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writeup Title</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../js/script.js" defer></script>
+
+  </script>
+  <style>
+    body {
+      background-color: #0d0d0d; /* same as main site */
+      color: #ffffff;            /* white text */
+      font-family: "Courier New", monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      border-bottom: 1px solid #333;
+    }
+
+    .writeup-page {
+      width: 70%;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #111; /* subtle contrast card */
+      border: 1px solid #333;
+      border-radius: 6px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    .writeup-page h1 {
+      color: #00ff9f; /* hacker green accent */
+      margin-top: 0;
+    }
+
+    .writeup-page small {
+      display: block;
+      margin-bottom: 1rem;
+      color: #aaa;
+    }
+
+    .writeup-page p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    code {
+      background: #222;
+      color: #00ff9f;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #00ff9f;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="home-button" data-section="home">
+    <i class="fas fa-home"></i>
+    </a>
+    <h1>Writeups</h1>
+  </header>
+
+  <div class="writeup-page">
+    <h1>CTF Challenge: SQL Injection</h1>
+    <small>Jan 2026</small>
+
+    <p>
+      This is where the full writeup goes. You can include detailed explanations,
+      code snippets, screenshots, or walkthroughs of your challenge.
+    </p>
+
+    <p>
+      Example: The vulnerable query was <code>SELECT * FROM users WHERE id = '$id'</code>.
+      By injecting <code>' OR '1'='1</code>, we bypassed authentication.
+    </p>
+
+    <a href="#" data-section="writeups" class="nav-menu">&larr; Back to Writeups</a>
+  </div>
+</body>
+</html>
+
