@@ -154,3 +154,34 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+//dark/light switcher
+   
+const toggleBtn = document.getElementById('theme-toggle');
+const iconMoon = document.getElementById('icon-moon');
+const iconSun = document.getElementById('icon-sun');
+
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+
+  if (document.body.classList.contains('light-mode')) {
+    iconMoon.style.display = 'none';
+    iconSun.style.display = 'inline';
+    localStorage.setItem('theme', 'light');
+  } else {
+    iconMoon.style.display = 'inline';
+    iconSun.style.display = 'none';
+    localStorage.setItem('theme', 'dark');
+  }
+});
+
+// Load saved preference
+window.onload = () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    iconMoon.style.display = 'none';
+    iconSun.style.display = 'inline';
+  }
+};
+
