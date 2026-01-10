@@ -141,15 +141,59 @@ document.addEventListener("DOMContentLoaded", () => {
     responsive: true
   });
 
-  // Load your audio file (place it in /audio/)
   wavesurfer.load('audio/gotye.mp3');
 
-  // Play/Pause button
+  // ensure starting volume
+  wavesurfer.setVolume(1);
+
+  // simple easeInOut function
+  function easeInOut(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function rampVolume(target, duration = 200) {
+    return new Promise(resolve => {
+      const startTime = performance.now();
+      const startVol = wavesurfer.getVolume();
+      const delta = target - startVol;
+
+      function step(now) {
+        const p = Math.min(1, (now - startTime) / duration);
+        const eased = easeInOut(p);
+        wavesurfer.setVolume(startVol + delta * eased);
+        if (p < 1) requestAnimationFrame(step);
+        else resolve();
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  async function fadePause() {
+    // fade out then pause
+    await rampVolume(0, 200); // 200ms fade
+    wavesurfer.pause();
+    // restore volume to 1 so next play fades in from full volume
+    wavesurfer.setVolume(1);
+  }
+
+  async function fadePlay() {
+    // start from 0 so fade-in is audible
+    wavesurfer.setVolume(0);
+    wavesurfer.play();
+    await rampVolume(1, 200); // 200ms fade
+  }
+
   const playBtn = document.getElementById('playPause');
   if (playBtn) {
-    playBtn.addEventListener('click', () => {
-      wavesurfer.playPause();
-      playBtn.textContent = wavesurfer.isPlaying() ? '$ pause' : '$ play';
+    playBtn.addEventListener('click', async () => {
+      // if currently playing, fade out then pause; otherwise fade in then play
+      if (wavesurfer.isPlaying()) {
+        await fadePause();
+        playBtn.textContent = '$ play';
+      } else {
+        await fadePlay();
+        playBtn.textContent = '$ pause';
+      }
     });
   }
 });
